@@ -10,14 +10,14 @@
 # 예시
 #   ubuntu 가 설치된 상태의 컨테이너가 만들어지는 이미지를 생성해주는 도커 파일
 #   현재 Dockerfile 의 경로(호스트)에 존재하는 README.md 파일을 "/" 경로에 복사한다.
-#   bash 명령어로 bash 를 수행시키도록 한다. (하지 않으면 컨테이너는 바로 꺼짐)
+#   ENTRYPOINT 로 시스템 일시정지 시켜 바로 종료되지 않도록 한다.
 # 이미지 생성
-#   docker build -t my-ubuntu .
+#   docker build -t ubuntu-image .
 FROM ubuntu
 
 COPY README.md /README.md
 
-CMD ["bash"]
+ENTRYPOINT ["/bin/bash", "-c", "sleep 5000"]
 
 
 # 참고

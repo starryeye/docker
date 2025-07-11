@@ -5,6 +5,8 @@
 #       foreground 실행
 #   docker run -d <이미지 명>:<태그 명>
 #       background 실행
+#   docker run -it <이미지 명>:<태그 명>
+#       bash 접속 (exec -it 를 함께 수행)
 #   docker run -d --name <원하는 컨테이너 이름> <이미지 명>:<태그 명>
 #       원하는 컨테이너 명으로 background 실행
 #   docker run -d -p <호스트 포트>:<컨테이너 포트> <이미지 명>:<태그 명>
