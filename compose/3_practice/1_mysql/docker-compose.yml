@@ -1,5 +1,5 @@
 services:
-  my-db:
+  mysql-service:
     container_name: mysql-container
     image: mysql
     environment:

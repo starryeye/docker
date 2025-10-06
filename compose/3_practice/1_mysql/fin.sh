@@ -1,4 +1,5 @@
 #!/bin/zsh
 
-docker compose down
+docker compose -p mysql-services down
 docker ps
+docker compose -p mysql-services ps -a

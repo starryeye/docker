@@ -16,11 +16,26 @@ services:
 # 예시 설명
 # Docker compose 에서는 하나의 컨테이너를 하나의 service 로 부른다.
 #     이에 따라.. "services" 하위에 띄우고 싶은 여러 컨테이너를 선언할 수 있다.
-# "my-web-server" 는 서비스의 이름이다.
+# "my-web-server" 는 서비스의 이름이다. (build 를 해서 image 옵션을 따로 안쓰면 이게 이미지 이름의 일부가됨..)
 #
 # 서비스 요소
-#     "container_name: webserver" 는 컨테이너 이름을 webserver 로 정한 것이다.
-#     "image: nginx" 는 컨테이너를 실행 시킬때 어떤 이미지를 사용할 것인지 정한 것이다.
-#     "ports" 는 컨테이너와 호스트의 포트 매핑을 어떻게 할 것인지 정한 것이다.
-#     "environment" 는 docker CLI run 명령어의 -e 옵션과 동일
-#     "volumes" 는 docker CLI run 명령어의 -v 옵션과 동일
+#     "container_name: webserver"
+#         컨테이너 이름을 webserver 로 정한 것이다.
+#     "image: nginx"
+#         컨테이너를 실행 시킬때 어떤 이미지를 사용할 것인지 정한 것이다.
+#     "ports"
+#         컨테이너와 호스트의 포트 매핑을 어떻게 할 것인지 정한 것이다.
+#     "environment"
+#         docker CLI run 명령어의 -e 옵션과 동일
+#     "volumes"
+#         docker CLI run 명령어의 -v 옵션과 동일
+#     "build"
+#         docker hub 의 이미지를 사용하지 않고 Dockerfile 로 빌드한 이미지를 사용하겠다는 것이다. (내부에서 Dockerfile 을 docker build 수행함)
+#         Dockerfile 의 상대 위치를 써준다.(docker compose 파일이 기준)
+#         참고.. 이미지를 빌드하는 것이지.. 개발 application 빌드는 아님
+#         하위
+#             "context"
+#                 빌드 컨텍스트를 적어줌
+#             "dockerfile"
+#                 Dockerfile 의 상대 위치를 써준다.(빌드 컨텍스트가 기준)
+#
