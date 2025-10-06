@@ -1,7 +1,7 @@
 # docker compose 에 대해 알아본다.
 # 의의
 #     여러 개의 Docker 컨테이너들을 하나의 묶음으로 관리할 수 있게 도와준다.
-#     복잡한 Docker CLI 명령어와 Dockerfile 을 통합함
+#     복잡한 Docker CLI 명령어를 매번 치지 않게 해줌... (compose.yml 로 문서화)
 #
 # 아래는 Docker CLI 로 nginx 컨테이너를 실행하는 예시이다. 이 예시와 동일한 기능을 하는 docker compose 를 작성해본다.
 #     docker run --name webserver -d -p 80:80 nginx
