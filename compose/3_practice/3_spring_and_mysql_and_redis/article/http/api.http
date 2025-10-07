@@ -5,7 +5,7 @@ GET http://localhost:8080/articles
 GET http://localhost:8080/articles/1
 
 ### save
-GET http://localhost:8080/articles/new
+POST http://localhost:8080/articles/new
 Content-Type: application/json
 
 {

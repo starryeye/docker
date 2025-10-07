@@ -10,3 +10,13 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: user-app
     password: secret-app
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        highlight_sql: true
+        format_sql: true
+        use_sql_comments: true
