@@ -1,0 +1,14 @@
+### findAll
+GET http://localhost:8080/articles
+
+### findById
+GET http://localhost:8080/articles/1
+
+### save
+GET http://localhost:8080/articles/new
+Content-Type: application/json
+
+{
+  "title": "title 1",
+  "content": "content 1"
+}

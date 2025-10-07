@@ -6,7 +6,7 @@ spring:
 #      host: localhost
 #      port: 6379
   datasource:
-    url: jdbc:mysql://localhost:3306/article-db
+    url: jdbc:mysql://article-database-service:3306/article-db
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: user-app
     password: secret-app
