@@ -1,0 +1,28 @@
+services:
+  article-application-service:
+    container_name: article-spring-container
+    build:
+      context: .. # 이미지 빌드 컨텍스트를 article 디렉토리로 설정
+      dockerfile: docker/Dockerfile  # 이미지 빌드를 위한 Dockerfile 경로 지정
+    ports:
+      - 8080:8080
+    depends_on:
+      article-database-service:
+        condition: service_healthy
+
+  article-database-service:
+    container_name: article-mysql-container
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret-root
+      MYSQL_DATABASE: article-db
+      MYSQL_USER: user-app
+      MYSQL_PASSWORD: secret-app
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping"]
+      interval: 10s
+      retries: 10
