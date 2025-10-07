@@ -38,7 +38,7 @@ public class RedisCacheConfig {
 
         RedisCacheConfiguration articleConfig = defaultConfig
                 .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(articleSerializer))
-                .entryTtl(Duration.ofMinutes(60L));
+                .entryTtl(Duration.ofSeconds(60L));
 
         return RedisCacheManager.builder(redisConnectionFactory)
                 .cacheDefaults(defaultConfig)
