@@ -3,6 +3,7 @@ package dev.practice.article.service;
 import dev.practice.article.domain.Article;
 import dev.practice.article.repository.ArticleRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,6 +28,7 @@ public class ArticleService {
     }
 
     @Transactional(readOnly = true)
+    @Cacheable(value = "articles:v1", key = "#id", sync = true)
     public Article findById(Long id) {
 
         try {

@@ -9,6 +9,8 @@ services:
     depends_on:
       article-database-service:
         condition: service_healthy
+      article-cache-service:
+        condition: service_healthy
 
   article-database-service:
     container_name: article-mysql-container
@@ -24,5 +26,15 @@ services:
       - 3306:3306
     healthcheck:
       test: ["CMD", "mysqladmin", "ping"]
+      interval: 10s
+      retries: 10
+
+  article-cache-service:
+    container_name: article-redis-container
+    image: redis
+    ports:
+      - 6379:6379
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
       interval: 10s
       retries: 10
